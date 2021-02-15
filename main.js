@@ -6,6 +6,7 @@ background_image="mars.jpg";
 rover_image="rover.png";
 rover_X=1;
 rover_Y=1;
+
 function roverimage(){
 BG_img=new Image();
 BG_img.onload=update_Background;
@@ -24,6 +25,49 @@ window.addEventListener("keydown",mykeydown);
 function mykeydown(e){
 keypressed=e.keyCode;
 console.log(keypressed);
+if (keypressed=="37") {
+ console.log("left")
+ left();
 }
-
+if (keypressed=="38") {
+    console.log("up");
+    up();
+   }
+   if (keypressed=="39") {
+    console.log("right");
+    right();    
+   }
+   if (keypressed=="40") {
+    console.log("down"); 
+     down();  
+   }
+}
+function up(){
+    if (rover_Y>20) {
+        rover_Y=rover_Y-20;
+        update_Background();
+           update_rover();  
+    }
+}
+function down(){
+    if (rover_Y<120) {
+        rover_Y=rover_Y+20;
+    update_Background();
+    update_rover();    
+    }   
+}
+function left(){
+    if (rover_X>20) {
+        rover_X=rover_X-20;
+        update_Background();
+        update_rover();     
+    }
+}
+function right(){
+    if (rover_X<250) {
+        rover_X=rover_X+20;
+        update_Background();
+        update_rover();   
+    }
+}
 
